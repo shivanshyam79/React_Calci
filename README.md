@@ -1,5 +1,5 @@
 # Ex04 Simple Calculator - React Project
-## Date:
+## Date:29/03/2025
 
 ## AIM
 To  develop a Simple Calculator using React.js with clean and responsive design, ensuring a smooth user experience across different screen sizes.
@@ -46,9 +46,137 @@ Deploy the website.
 Upload to GitHub Pages for free hosting.
 
 ## PROGRAM
+App .js
+```
+import React, { useState } from "react";
+import "./App.css";
 
+const App = () => {
+  const [input, setInput] = useState("");
 
+  const handleClick = (value) => {
+    if (value === "AC") {
+      setInput(""); 
+    } else if (value === "=") {
+      try {
+        setInput(eval(input).toString()); 
+      } catch {
+        setInput("Error");
+      }
+    } else {
+      setInput(input + value); 
+    }
+  };
+
+  return (
+    <div className="calculator">
+      <h1 className="title">Quick Math</h1>
+      <div className="display">{input || "0"}</div>
+      <div className="buttons">
+        <button className="btn-ac" onClick={() => handleClick("AC")}>AC</button>
+        <button className="btn-special">⌫</button>
+        <button className="btn-operator" onClick={() => handleClick("%")}>%</button>
+        <button className="btn-operator" onClick={() => handleClick("/")}>/</button>
+
+        <button className="btn-number" onClick={() => handleClick("7")}>7</button>
+        <button className="btn-number" onClick={() => handleClick("8")}>8</button>
+        <button className="btn-number" onClick={() => handleClick("9")}>9</button>
+        <button className="btn-operator" onClick={() => handleClick("")}></button>
+
+        <button className="btn-number" onClick={() => handleClick("4")}>4</button>
+        <button className="btn-number" onClick={() => handleClick("5")}>5</button>
+        <button className="btn-number" onClick={() => handleClick("6")}>6</button>
+        <button className="btn-operator" onClick={() => handleClick("-")}>-</button>
+
+        <button className="btn-number" onClick={() => handleClick("1")}>1</button>
+        <button className="btn-number" onClick={() => handleClick("2")}>2</button>
+        <button className="btn-number" onClick={() => handleClick("3")}>3</button>
+        <button className="btn-operator" onClick={() => handleClick("+")}>+</button>
+
+        <button className="btn-number" onClick={() => handleClick("0")}>0</button>
+        <button className="btn-number" onClick={() => handleClick(".")}>.</button>
+        <button className="btn-equal" onClick={() => handleClick("=")}>=</button>
+      </div>
+      
+      <footer>
+        <p>DEVELOPED BY Shyam R</p>
+        <p>Reg No: 212223040200</p> 
+      </footer>
+
+    </div>
+  );
+};
+
+export default App;
+```
+App.css
+```
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #7772d4;
+  margin: 0;
+}
+
+.calculator {
+  background-color: #a01f108a;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px rgba(191, 185, 74, 0.3);
+  text-align: center;
+  width: 300px;
+}
+
+h1 {
+  margin: 10px 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.display {
+  background-color: black;
+  color: white;
+  width: 100%;
+  height: 50px;
+  text-align: right;
+  font-size: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+  height: 50px;
+  font-size: 18px;
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+.footer {
+  margin-top: 15px;
+  font-size: 14px;
+  color: black;
+}
+```
 ## OUTPUT
+![Screenshot 2025-03-29 143235](https://github.com/user-attachments/assets/bd7ec8d9-f920-4a92-9959-71992af8403a)
 
 
 ## RESULT
